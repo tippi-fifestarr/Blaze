@@ -95,6 +95,8 @@ const NewSubmission = () => {
       if (url.length > 0) {
         mutate(url);
       }
+      // check if its a duplicate
+      // mutate with a warning if it is
     },
     [mutate]
   );
@@ -103,6 +105,9 @@ const NewSubmission = () => {
     () => debounce(fetchPostData, 300),
     [fetchPostData]
   );
+
+    // make a new function to fetch the post data from the backend
+    // wrap onInputDebounce in that function, and check the url for dupe
 
   const queryClient = useQueryClient();
 
